@@ -1,5 +1,13 @@
 import { readFile } from 'fs';
+import { createServer } from 'http';
 
-readFile('index.html', (err, data) => {
-    console.log(data.toString());
+var server = createServer((req, resp) => {
+    readFile('index.html', (err, data) => {
+        resp.write(data.toString());
+        resp.end();
+    });
+});
+
+server.listen(9000, () => {
+    console.log("server running");
 });
