@@ -1,3 +1,5 @@
-import * as $ from 'jQuery';
+import { readFile } from 'fs';
 
-$('div').html('<h1>Generated from typescript</h1>');
+readFile('index.html', (err, data) => {
+    console.log(data.toString());
+});
